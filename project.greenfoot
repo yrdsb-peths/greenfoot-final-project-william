@@ -1,15 +1,22 @@
 #Greenfoot project file
+class.Space.image=Space\ background.png
 class.Spaceship.image=spaceship.png
 class.shipBullet.image=bullet.png
 dependency1.from=Space
 dependency1.to=Spaceship
 dependency1.type=UsesDependency
-editor.fx.0.height=0
-editor.fx.0.width=0
-editor.fx.0.x=0
+dependency2.from=shipBullet
+dependency2.to=Spaceship
+dependency2.type=UsesDependency
+dependency3.from=shipBullet
+dependency3.to=Space
+dependency3.type=UsesDependency
+editor.fx.0.height=727
+editor.fx.0.width=697
+editor.fx.0.x=-9
 editor.fx.0.y=0
 height=736
-package.numDependencies=1
+package.numDependencies=3
 package.numTargets=3
 project.charset=UTF-8
 publish.hasSource=false
