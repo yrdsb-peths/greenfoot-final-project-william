@@ -22,5 +22,10 @@ public class Spaceship extends Actor
             x = x - 1;
             setLocation(x, getY());
         }
+        if(Greenfoot.isKeyDown("w") && ((Space) getWorld()).CanShoot())
+        {
+            getWorld().addObject(new shipBullet(), getX()+1, getY()-5);
+            ((Space) getWorld()).ShootSet(0);
+        }
     }
 }

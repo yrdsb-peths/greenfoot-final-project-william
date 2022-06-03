@@ -16,4 +16,15 @@ public class Space extends World
     {
         shot = arg;
     }
+    public boolean CanShoot()
+    {
+        if(shot == 1)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 }
