@@ -27,7 +27,28 @@ public class Counter extends Actor
     }
     public void act()
     {
-        
+        if(value < target)
+        {
+            value++;
+            updateImage();
+        }
+        else if(value > target)
+        {
+            value--;
+            updateImage();
+        }
+    }
+    public void add(int score)
+    {
+        target += score;
+    }
+    public void subtract(int score)
+    {
+    target -= score;
+    }
+    public int getValue()
+    {
+        return value;
     }
     private void updateImage()
     {
