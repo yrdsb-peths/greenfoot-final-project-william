@@ -5,9 +5,10 @@ public class Space extends World
 {
     public int shot = 1;
     
-    Counter score = new Counter("Score: ");
+    Counter score = new Counter("Scores: ");
     
     Counter live = new Counter("Lives: ");
+
     
     public Space()
     {    
