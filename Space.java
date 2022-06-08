@@ -5,6 +5,8 @@ public class Space extends World
 {
     public int shot = 1;
     
+    public int invaders = 50;
+    
     Counter score = new Counter("Scores: ");
     
     Counter live = new Counter("Lives: ");
@@ -50,5 +52,16 @@ public class Space extends World
     public void addPoints(int pts)
     {
     score.add(pts);
+    }
+    public void populate()
+    {
+        //first row of aliens
+        Alien1[] enemies1 = new Alien1[10];
+        for(int i = 0; i < 10; i++)
+        {
+            enemies1[i] = new Alien1();
+            addObject(enemies1[i], (i*5)+5,10);
+        }
+        
     }
 }
