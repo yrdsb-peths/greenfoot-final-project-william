@@ -31,9 +31,23 @@ public class Alien1 extends Actor
     }
     public void act()
     {
-        //
+        List bullets = getNeighbours(3, false, shipBullet.class);
+        if(!bullets.isEmpty())
+        {
+            Actor b = (Actor) bullets.get(0);
+            if(b instanceof shipBullet)
+            {
+                ((Space) getWorld()).ShootSet(1);
+                getWorld().removeObject(b);
+                destroy();
+            }
+            else
+            {
+                shoot();
+                move();
+            }
+        }
     }
-    
     public void destroy()
     {
         ((Space) getWorld()).addPoints(10);
@@ -45,9 +59,74 @@ public class Alien1 extends Actor
         }
         getWorld().removeObject(this);
     }
+    public void shoot()
+    {
+        if(shouldMove == 1)
+        {
+            shoot = Greenfoot.getRandomNumber(100);
+            if(shoot <= chance)
+            {
+                getWorld().addObject(new Alien_bullet(), getX(), getY() + 5);
+            }
+        }
+    }
     public void move()
     {
-        //
+        if(dir == 1 && shouldCar == 1)
+        {
+            if(getX() + 5 >= getWorld().getWidth())
+            {
+                carridgeRight();
+                carridgeAlliesRight();
+                movetimer = 0;
+                shouldMove = 0;
+            }
+        } else if(dir == 2 && shouldCar == 1)
+        {
+            if(getX() - 5 <= 0)
+            {
+                carridgeLeft();
+                carridgeAlliesLeft();
+                movetimer = 0;
+                shouldMove = 0;
+            }
+        }
+        if(dir == 1 && shouldMove == 1)
+        {
+            if(getImage() == img1)
+            {
+                setImage(img2);
+            }
+            else
+            {
+                setImage(img1);
+            }
+            setLocation(getX() + 5, getY());
+            shouldMove = 0;
+        } else if(dir == 2 && shouldMove == 1)
+        {
+            if(getImage() == img1)
+            {
+                setImage(img2);
+            } else
+            {
+                setImage(img1);
+            }
+            setLocation(getX() - 5, getY());
+            shouldMove = 0;
+        } else if(shouldMove == 0)
+        {
+            movetimer++;
+            if(movetimer == 24)
+            {
+                shouldCar = 1;
+            } else if(movetimer == 25)
+            {
+                shouldMove = 1;
+                shouldCar = 0;
+                movetimer = 0;
+            }
+        }
     }
     private void carridgeRight()
     {
