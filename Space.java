@@ -19,6 +19,7 @@ public class Space extends World
         addObject(score, 15, 90);
         addObject(live, 95, 90);
         live.add(1);
+        populate();
     }
     
     public void ShootSet(int arg)

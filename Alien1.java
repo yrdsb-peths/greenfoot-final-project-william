@@ -27,26 +27,22 @@ public class Alien1 extends Actor
     public Alien1()
     {
         img1 = getImage();
-        img2 = new GreenfootImage("Alien1_animation2");
+        img2 = new GreenfootImage("Alien1_animation2.png");
     }
     public void act()
     {
-        List bullets = getNeighbours(3, false, shipBullet.class);
-        if(!bullets.isEmpty())
-        {
-            Actor b = (Actor) bullets.get(0);
-            if(b instanceof shipBullet)
-            {
-                ((Space) getWorld()).ShootSet(1);
-                getWorld().removeObject(b);
-                destroy();
-            }
-            else
-            {
-                shoot();
-                move();
-            }
-        }
+        List bullets = getNeighbours(3, false, shipBullet.class); //new list with all Pbullets within 2 uinits adjacent to the enemy
+       if (!bullets.isEmpty()) { //is there is one (there will only be one, since only one bullet on screen at a time)
+       Actor b = (Actor) bullets.get(0); //gets the first object in the list
+       if (b instanceof shipBullet) { //just an extra check to make sure its a player bullet
+           ((Space) getWorld()).ShootSet(1); //allow us to fire again
+           getWorld().removeObject(b); //remobe the bullet
+           destroy(); //call the destroy funcrtion
+       }
+       } else {
+           shoot();
+           move();    //if we are still alive move
+       }
     }
     public void destroy()
     {
