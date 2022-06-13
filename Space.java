@@ -57,12 +57,40 @@ public class Space extends World
     public void populate()
     {
         //first row of aliens
-        Alien1[] enemies1 = new Alien1[10];
+        Alien1[] enemies1 = new Alien1[21];
         for(int i = 0; i < 10; i++)
         {
             enemies1[i] = new Alien1();
-            addObject(enemies1[i], (i*5)+5,10);
+            addObject(enemies1[i], (i*5)+5, 10);
         }
         
+        //2nd row of aliens
+        for(int i = 0; i < 10; i++ )
+        {
+            enemies1[i] = new Alien1();
+            addObject(enemies1[i], (i*5)+5, 15);
+        }
+        
+        //3rd row of aliens
+        Alien2[] enemies2 = new Alien2[21];
+        for(int i = 0; i < 10; i++)
+        {
+            enemies2[i] = new Alien2();
+            addObject(enemies2[i], (i*5)+5, 20);
+        }
+        
+        //4th row of aliens
+        for(int i = 0; i < 10; i++)
+        {
+            enemies2[i] = new Alien2();
+            addObject(enemies2[i], (i*5)+5, 25);
+        }
+        
+        //5th row
+        for(int i = 0; i < 10; i++)
+        {
+            enemies2[i] = new Alien2();
+            addObject(enemies2[i], (i*5)+5, 30);
+        }
     }
 }
