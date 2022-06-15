@@ -41,6 +41,7 @@ public class Spaceship extends Actor
         {
             getWorld().addObject(new shipBullet(), getX()+1, getY()-7);
             ((Space) getWorld()).ShootSet(0);
+            Greenfoot.playSound("gun_shoot.wav");
         }
     }
     private void destroy()
